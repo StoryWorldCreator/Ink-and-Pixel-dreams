@@ -4,197 +4,72 @@
 <meta charset="UTF-8">
 <title>Books & Films Facts</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f9; }
-  header { background: #4a90e2; color: white; padding: 30px 0; text-align: center; }
-  h1, h2 { margin: 10px 0; }
-  section { padding: 20px; max-width: 1200px; margin: auto; }
-  .facts, .comparison { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-  .fact-card { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); padding: 15px; width: 250px; }
-  .buttons { text-align: center; margin: 40px 0; }
-  .buttons button { padding: 15px 30px; font-size: 18px; margin: 10px; cursor: pointer; border: none; border-radius: 8px; background: #4a90e2; color: white; transition: 0.3s; }
-  .buttons button:hover { background: #357ab8; }
-  /* Modal Styles */
-  .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
-  .modal-content { background-color: #fefefe; margin: 50px auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 1200px; max-height: 90vh; overflow-y: auto; }
-  .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-  .grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
-  .grid-item { width: 150px; text-align: center; cursor: pointer; }
-  .grid-item img { width: 100%; border-radius: 8px; }
-  .item-info { display: none; padding: 10px; background: #e2e2e2; border-radius: 8px; margin-top: 5px; }
+  body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f9; padding: 50px; }
+  h1 { color: #4a90e2; }
+  button { padding: 15px 30px; font-size: 18px; margin: 20px; cursor: pointer; border: none; border-radius: 8px; background: #4a90e2; color: white; }
+  button:hover { background: #357ab8; }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>Books & Films Facts</h1>
-  <p>Discover 20 fascinating books and 20 amazing films!</p>
-</header>
+<h1>Books & Films Facts</h1>
+<p>Click your age group to open content:</p>
 
-<section>
-  <h2>Interesting Facts - Books</h2>
-  <div class="facts" id="books-facts">
-    <div class="fact-card">Book Fact 1</div>
-    <div class="fact-card">Book Fact 2</div>
-    <div class="fact-card">Book Fact 3</div>
-    <div class="fact-card">Book Fact 4</div>
-    <div class="fact-card">Book Fact 5</div>
-    <div class="fact-card">Book Fact 6</div>
-    <div class="fact-card">Book Fact 7</div>
-    <div class="fact-card">Book Fact 8</div>
-    <div class="fact-card">Book Fact 9</div>
-    <div class="fact-card">Book Fact 10</div>
-  </div>
-</section>
-
-<section>
-  <h2>Interesting Facts - Films</h2>
-  <div class="facts" id="films-facts">
-    <div class="fact-card">Film Fact 1</div>
-    <div class="fact-card">Film Fact 2</div>
-    <div class="fact-card">Film Fact 3</div>
-    <div class="fact-card">Film Fact 4</div>
-    <div class="fact-card">Film Fact 5</div>
-    <div class="fact-card">Film Fact 6</div>
-    <div class="fact-card">Film Fact 7</div>
-    <div class="fact-card">Film Fact 8</div>
-    <div class="fact-card">Film Fact 9</div>
-    <div class="fact-card">Film Fact 10</div>
-  </div>
-</section>
-
-<section>
-  <h2>Differences & Similarities</h2>
-  <div class="comparison">
-    <div class="fact-card"><strong>Difference 1:</strong> Books allow imagination.</div>
-    <div class="fact-card"><strong>Difference 2:</strong> Films use visuals & sound.</div>
-    <div class="fact-card"><strong>Similarity 1:</strong> Both tell stories.</div>
-    <div class="fact-card"><strong>Similarity 2:</strong> Both inspire emotions.</div>
-  </div>
-</section>
-
-<section>
-  <h2>Important Facts About Both</h2>
-  <div class="comparison">
-    <div class="fact-card">Fact 1: Both impact culture.</div>
-    <div class="fact-card">Fact 2: Both can educate and entertain.</div>
-    <div class="fact-card">Fact 3: Both can be adapted from one to another.</div>
-  </div>
-</section>
-
-<div class="buttons">
-  <button onclick="openModal('childrenModal')">For Children</button>
-  <button onclick="openModal('teenModal')">14+</button>
-</div>
-
-<!-- Children Modal -->
-  <div id="childrenModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('childrenModal')">&times;</span>
-    <h2>Books & Films for Children</h2>
-    <div class="grid" id="children-grid">
-      <!-- 10 Example items -->
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Book1" alt="Book1">
-        <div class="item-info">Book 1: Classic children's book. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Film1" alt="Film1">
-        <div class="item-info">Film 1: Animated adventure. <a href="#">Watch Now</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Book2" alt="Book2">
-        <div class="item-info">Book 2: Fun story for kids. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Film2" alt="Film2">
-        <div class="item-info">Film 2: Magical journey. <a href="#">Watch Now</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Book3" alt="Book3">
-        <div class="item-info">Book 3: Adventure story. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Film3" alt="Film3">
-        <div class="item-info">Film 3: Animated comedy. <a href="#">Watch Now</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Book4" alt="Book4">
-        <div class="item-info">Book 4: Mystery for children. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Film4" alt="Film4">
-        <div class="item-info">Film 4: Family adventure. <a href="#">Watch Now</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Book5" alt="Book5">
-        <div class="item-info">Book 5: Fairy tale. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=Film5" alt="Film5">
-        <div class="item-info">Film 5: Cartoon adventure. <a href="#">Watch Now</a></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Teen Modal -->
-<div id="teenModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('teenModal')">&times;</span>
-    <h2>Books & Films 14+</h2>
-    <div class="grid" id="teen-grid">
-      <!-- 10 Example items -->
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=BookA" alt="BookA">
-        <div class="item-info">Book A: Young adult novel. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=FilmA" alt="FilmA">
-        <div class="item-info">Film A: Action/Drama. <a href="#">Watch Now</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=BookB" alt="BookB">
-        <div class="item-info">Book B: Mystery/Thriller. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=FilmB" alt="FilmB">
-        <div class="item-info">Film B: Teen drama. <a href="#">Watch Now</a></div>
-        </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=BookC" alt="BookC">
-        <div class="item-info">Book C: Sci-fi adventure. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=FilmC" alt="FilmC">
-        <div class="item-info">Film C: Fantasy epic. <a href="#">Watch Now</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=BookD" alt="BookD">
-        <div class="item-info">Book D: Romance/Adventure. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=FilmD" alt="FilmD">
-        <div class="item-info">Film D: Thriller. <a href="#">Watch Now</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=BookE" alt="BookE">
-        <div class="item-info">Book E: Horror/Teen. <a href="#">Read More</a></div>
-      </div>
-      <div class="grid-item" onclick="toggleInfo(this)">
-        <img src="https://via.placeholder.com/150x220?text=FilmE" alt="FilmE">
-        <div class="item-info">Film E: Action/Sci-fi. <a href="#">Watch Now</a></div>
-      </div>
-    </div>
-  </div>
-</div>
+<button onclick="openChildren()">Children</button>
+<button onclick="openTeen()">14+</button>
 
 <script>
-  function openModal(id) { document.getElementById(id).style.display = "block"; }
-  function closeModal(id) { document.getElementById(id).style.display = "none"; }
-  function toggleInfo(item) {
-    const info = item.querySelector('.item-info');
-    info.style.display = (info.style.display === "block") ? "none" : "block";
-  }
+function openChildren() {
+  const childWindow = window.open("", "ChildrenWindow", "width=1000,height=800,scrollbars=yes");
+  childWindow.document.write(
+    <html><head><title>Children - Books & Films</title></head>
+    <body style="font-family: Arial, sans-serif; padding:20px;">
+      <h1>Books & Films for Children</h1>
+      <p>Click images to see details.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:15px;">
+        <div onclick="alert('Book 1: Classic children\'s book. Read More: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=Book1" style="border-radius:8px;"><br>Book 1
+        </div>
+        <div onclick="alert('Film 1: Animated adventure. Watch Now: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=Film1" style="border-radius:8px;"><br>Film 1
+        </div>
+        <div onclick="alert('Book 2: Fun story for kids. Read More: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=Book2" style="border-radius:8px;"><br>Book 2
+        </div>
+        <div onclick="alert('Film 2: Magical journey. Watch Now: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=Film2" style="border-radius:8px;"><br>Film 2
+        </div>
+        <!-- Add more items as needed -->
+      </div>
+    </body></html>
+  );
+}
+
+function openTeen() {
+  const teenWindow = window.open("", "TeenWindow", "width=1000,height=800,scrollbars=yes");
+  teenWindow.document.write(
+    <html><head><title>14+ - Books & Films</title></head>
+    <body style="font-family: Arial, sans-serif; padding:20px;">
+      <h1>Books & Films 14+</h1>
+      <p>Click images to see details.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:15px;">
+        <div onclick="alert('Book A: Young adult novel. Read More: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=BookA" style="border-radius:8px;"><br>Book A
+        </div>
+        <div onclick="alert('Film A: Action/Drama. Watch Now: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=FilmA" style="border-radius:8px;"><br>Film A
+        </div>
+        <div onclick="alert('Book B: Mystery/Thriller. Read More: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=BookB" style="border-radius:8px;"><br>Book B
+        </div>
+        <div onclick="alert('Film B: Teen drama. Watch Now: https://example.com')">
+          <img src="https://via.placeholder.com/150x220?text=FilmB" style="border-radius:8px;"><br>Film B
+        </div>
+        <!-- Add more items as needed -->
+      </div>
+    </body></html>
+  );
+}
 </script>
 
 </body>
